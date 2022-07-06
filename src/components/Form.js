@@ -1,20 +1,20 @@
 import React from 'react'
 //import TodoList from './TodoList';
 
-function Form(props) {
+function Form({inputText, setInputText,todos,setTodos}) {
   function inputTextHandler(e){
     //console.log(e.target.value);
-    props.setInputText(e.target.value)
+    setInputText(e.target.value)
   }  
   function submitTodoHandler(e){
     e.preventDefault();
-    props.setTodos([...props.todos,{text:props.inputText,completed:false,id:Math.floor(Math.random()*1000)}]);
-    props.setInputText("");
+    setTodos([...todos,{text:inputText,completed:false,id:Math.floor(Math.random()*1000)}]);
+    setInputText("");
   }
   
   return (
     <form>
-      <input value={props.inputText} onChange={inputTextHandler} type="text" className="todo-input" />
+      <input value={inputText} onChange={inputTextHandler} type="text" className="todo-input" />
       <button  onClick={submitTodoHandler} className="todo-button" type="submit">
         <i className="fas fa-plus-square"></i>
       </button>
