@@ -6,7 +6,7 @@ function TodoList(props) {
       
     <div className='todo-container'>
         <ul className='todo-list'>
-          {props.todos.map(todo=><Todo todo={todo.text} key={todo.id} completed={todo.completed}/>)}
+          {props.todos.map(todo=><Todo text={todo.text} key={todo.id} completed={todo.completed}/>)}
         </ul>
     </div>
     
