@@ -2,7 +2,7 @@ import React from 'react'
 
 function Todo({text,todo,setTodo,todos}){
   const deleteHandler= ()=>{
-    setTodo(todos.filter(todos=>todos.id!=todo.id));
+    setTodo(todos.filter(todos=>todos.id!==todo.id));
   }
   const completeHandler = () =>{
     setTodo(todos.map((item)=>{
