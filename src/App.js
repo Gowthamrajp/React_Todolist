@@ -11,9 +11,23 @@ export default function App() {
   const[filteredTodos,setFilteredTodos]=useState([]);
 
   useEffect(()=>{
+    getLocal();
+  },[])
+  useEffect(()=>{
     filterHandler();
+    saveLocal();
   },[todos,status]);
 
+  const saveLocal=()=>{
+    localStorage.setItem("todos",JSON.stringify(todos));
+  }
+  const getLocal=()=>{
+    if(localStorage.getItem("todos")===null)
+    localStorage.setItem("todos",JSON.stringify([]));
+    else
+     setTodos(JSON.parse(localStorage.getItem("todos")));
+    
+  }
   const filterHandler = ()=>{
     switch(status){
       case'completed' : setFilteredTodos(todos.filter(todo =>todo.completed===true));
