@@ -8,8 +8,11 @@ function Form({inputText, setInputText,todos,setTodos,setStatus}) {
   }  
   function submitTodoHandler(e){
     e.preventDefault();
+    if(inputText!==''){
     setTodos([...todos,{text:inputText,completed:false,id:Math.floor(Math.random()*1000)}]);
     setInputText("");
+    }else
+    alert("Sorry I cannot add an empty TODO");
   }
   const statusHandler = (e)=>{
     setStatus(e.target.value);
