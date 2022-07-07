@@ -39,7 +39,7 @@ export default function App() {
   }
   return (
     <div className="App">
-      <h1>Hello react</h1>
+      <h1>React TODO App</h1>
       <Form 
         inputText={inputText} 
         setInputText={setInputText} 
